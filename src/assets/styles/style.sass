@@ -1,0 +1,633 @@
+// Import
+
+@import "vars.sass"
+@import "fonts.sass"
+
+// Box-sizing
+
+*
+	box-sizing: border-box
+	outline: none
+
+// Defaults
+
+body
+	+Roboto-Regular
+	font-size: 15px
+	font-weight: normal
+	color: $black
+	background-color: $gray
+	overflow-x: hidden
+
+h1, h2, h3, h4, h5, h6, p
+	margin: 0
+	padding: 0
+
+a
+	color: $black
+	outline: none
+	text-decoration: none
+
+ul
+	margin: 0
+	padding: 0
+
+li
+	list-style: none
+
+img
+	display: block
+	max-width: 100%
+	height: auto
+
+textarea, input[type="text"], input[type="button"], input[type="submit"]
+	-webkit-appearance: none
+	border-radius: 0
+
+input
+	border: none
+
+button
+	background-color: transparent
+	border: none
+	cursor: pointer
+	padding: 0
+	margin: 0
+
+// Wrapper
+
+.container
+	width: 100%
+	max-width: 1200px
+	min-width: 320px
+	margin: 0 auto
+	padding: 0 15px
+
+
+// Auxiliary classes
+
+.btn
+	color: $white
+	background-color: $orange
+	transition: .3s	
+
+.phone-connection
+	position: relative
+	padding-left: 32px
+	&__telephone-number
+		display: block
+		+Roboto-Medium
+	&__icon
+		position: absolute
+		top: 0
+		left: 0
+		font-size: 18px
+		color: $orange
+
+.email
+	&__address
+		display: flex
+		align-items: center
+		margin-bottom: 13px
+	&__icon
+		color: $orange
+		font-size: 24px
+		margin-right: 13px
+
+.request-call
+	padding: 12px 30px
+	&:hover
+		background-color: #161615
+	
+.social-networks
+	display: flex
+	justify-content: flex-end
+	&__link
+		transition: .3s
+		&:not(:last-child)
+			margin-right: 15px
+		&:hover
+			opacity: .5
+
+.login
+	&__button
+		display: flex
+		justify-content: center
+		align-items: center
+	&__icon
+		color: $orange
+		font-size: 20px
+		margin-right: 15px
+
+.basket
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	background-color: $green
+	text-align: center
+	width: 111px
+	padding: 15px
+	transition: .3s
+	&__icon
+		color: $white
+		font-size: 35px
+		margin: 0 auto 15px
+	&__status
+		color: rgba($white, .6)
+	&:hover
+		opacity: .7
+
+.navigation
+	&__menu
+		display: flex
+	&__item
+		position: relative
+		&:not(:last-child)
+			margin-right: 35px
+			&:after
+				content: ''
+				position: absolute
+				display: block
+				top: 50%
+				right: -17px
+				transform: translateY(-50%)
+				width: 1px
+				height: 16px
+				background-image: url('../img/icons/delimiter.png')
+	&__link
+		+Roboto-Medium
+		text-transform: uppercase
+		transition: .3s
+		&:hover
+			color: $green
+
+.form-search
+	position: relative
+	max-width: 262px
+	max-height: 38px
+	&__input
+		background-color: #f7f7f7
+		padding: 14px 40px 14px 12px
+		width: 262px
+		height: 38px
+		border: 1px solid transparent
+		caret-color: $orange
+		transition: .3s
+		&::placeholder
+			color: $black
+		&:focus
+			background-color: #fdf9e4
+			border: 1px solid #fe9b00
+			& +	.form-search__button
+						color: $orange
+	&__button
+		position: absolute
+		top: 50%
+		right: 12px
+		transform: translateY(-50%)
+		font-size: 18px
+		color: #cccccc
+		transition: .3s
+
+.catalog
+	position: relative
+	z-index: 99
+	&__arrow
+		font-size: 20px
+		color: rgba(255, 255, 255, .4)
+		transition: .3s
+	&__button
+		display: flex
+		align-items: center
+		justify-content: space-between
+		width: 278px
+		height: 55px
+		cursor: pointer
+		padding: 20px 18px 20px 14px
+		background-color: $dark-orange
+		text-transform: uppercase
+		color: $white
+	&:hover
+		.catalog__list
+			opacity: 1
+			visibility: visible
+		.catalog__button-arrow
+			transform: rotate(90deg)
+	&__list
+		position: absolute
+		top: 100%
+		left: 0
+		width: 100%
+		opacity: 0
+		visibility: hidden
+		transition: .3s
+	&__item
+		&:hover
+			.catalog__sub-list
+				opacity: 1
+				visibility: visible
+			.catalog__list-arrow
+				color: #cccccc
+	&__link
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 20px 14px
+		font-size: 17px
+		color: $white
+		background-color: $orange
+		transition: .3s
+		&:hover
+			color: $black
+			background-color: $white
+			transform: scale(1.05)
+			position: relative
+			z-index: 3
+			.catalog__sub-list
+				opacity: 1
+				visibility: visible
+	&__sub-list
+		position: absolute
+		top: 0
+		left: 100%
+		width: 100%
+		opacity: 0
+		visibility: hidden
+		transition: .3s
+	&__sub-item
+		position: relative
+	&__sub-link
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 20px 30px
+		font-size: 17px
+		color: $white
+		background-color: $dark-orange
+		transition: .3s
+		&:hover
+			color: $black
+			background-color: $white
+	&__view-all
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 20px 55px
+		background-color: $white
+		font-size: 17px
+		
+// Section
+
+.section
+	&-headline
+		position: relative
+		display: flex
+		justify-content: center
+		align-items: center
+		padding: 35px 0
+		&__title
+			+Roboto-Medium
+			font-size: 22px
+			color: #7c7373
+			text-transform: uppercase
+		&__page
+			position: absolute
+			top: 50%
+			right: 0
+			transform: translateY(-50%)
+			font-size: 16px
+			color: $orange
+			+Roboto-Medium
+			text-decoration: underline
+			transition: .15s
+			&:hover
+				color: #7c7373
+
+// Slider-header
+
+.slider
+	&__next, &__prev
+		width: 60px
+		height: 60px
+		background-color: $gray
+		display: flex
+		justify-content: center
+		align-items: center
+		border-radius: 50%
+		cursor: pointer
+		position: absolute
+		z-index: 9
+		top: 50%
+		transform: translateY(-50%)
+		&:hover
+			.slider-header__arrow
+				color: $orange
+	&__next
+		right: -30px
+	&__prev
+		left: -30px
+	&__wrap
+		position: relative
+	&-header
+		width: 100%
+		height: 100%
+		&__item
+			display: flex
+			justify-content: center
+			align-items: center
+			max-height: 430px
+		&__wrap
+			padding: 20px 0
+			max-width: 862px
+			margin: 0 auto
+		&__arrow
+			font-size: 26px
+			color: rgba(0, 0, 0, .4)
+			transition: .3s
+
+.slider-header__pagination .swiper-pagination-bullet 
+	width: 32px
+	height: 32px
+	background-color: transparent
+	cursor: pointer
+	position: relative
+	opacity: 1
+	&:after
+		content: ''
+		display: block
+		width: 10px
+		height: 10px
+		background-color: $white
+		border-radius: 50%
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+.slider-header__pagination .swiper-pagination-bullet
+	&:not(.swiper-pagination-bullet-active):hover
+		border: 1px solid rgba(255, 255, 255, .5)
+
+.slider-header__pagination .swiper-pagination-bullet-active
+	border: 1px solid $white
+
+.swiper-container-horizontal> .slider-header__pagination
+	bottom: 16px
+
+.add-comparison
+	&__icon
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 32px
+		height: 32px
+		border-radius: 50%
+		background-color: #00b5ab
+		font-size: 16px
+		color: $white
+		margin-right: 14px
+		transition: .3s
+	&__text
+		font-size: 14px
+		color: $green
+		transition: .3s
+	&:hover
+		.add-comparison__icon
+			background-color: #1bcdc3
+		.add-comparison__text
+			color: $black
+
+// Header
+
+.header
+	background-color: $white
+	&__info
+		display: flex
+		justify-content: space-between
+	&__main
+		padding: 20px 25px 0 0
+		width: 100%
+	&-main
+		&__top, &__bottom
+			display: flex
+		&__top
+			margin-bottom: 22px
+		&__bottom
+			align-items: center
+		&__login, &__form-search
+			margin-left: auto
+		&__social-networks
+			margin-bottom: 18px
+		&__phone-connection
+			margin-right: 40px
+		&__telephone-number
+			&:not(:last-child)
+				margin-bottom: 7px
+		&__navigation
+			margin-left: 28px
+	&__logo
+		margin-right: 45px
+
+// Same-sliders | bestsellers, stock
+
+.same
+	&-slider
+		&__label
+			display: flex
+			align-items: flex-end
+			text-align: center
+			position: absolute
+			top: 0
+			left: -0.5px
+			border: 43px solid transparent
+			border-left: 43px solid
+			border-top: 43px solid
+			&-text
+				position: absolute
+				font-size: 14px
+				color: $white
+				transform: rotate(-45deg)
+			&--hits
+				border-left-color: $orange
+				border-top-color: $orange
+				.same-slider__label-text
+					top: -33px
+					left: -42px
+			&--stocks
+				border-left-color: #ff411c
+				border-top-color: #ff411c
+				.same-slider__label-text
+					top: -22px
+					left: -36px
+			&--news
+				border-left-color: #39c05f
+				border-top-color: #39c05f
+				.same-slider__label-text
+					top: -22px
+					left: -42px
+		&__content
+			text-align: center
+		&__img
+			height: 234px
+			margin-bottom: 20px
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+		&__title
+			+Roboto-Medium
+			max-width: 200px
+			margin: 0 auto 23px
+			word-wrap: break-word
+		&__item
+			height: 492px
+			background-color: $white
+			padding: 15px
+			position: relative
+			border: 1px solid #e9e9e9
+			cursor: pointer
+			transition: .15s
+			&:hover
+				border-color: $orange
+		&__price-buy
+			position: absolute
+			width: 100%
+			padding: 15px
+			bottom: 0
+			left: 0
+		&__price
+			display: flex
+			justify-content: center
+			align-items: center
+			margin-bottom: 14px
+			&--old
+				font-size: 16px
+				color: #7c7373
+				margin-right: 15px
+				padding: 0 7px
+				position: relative
+				&:after
+					content: ''
+					display: block
+					width: 100%
+					height: 1px
+					background-color: #ff0000
+					position: absolute
+					top: 50%
+					left: 0
+					transform: translateY(-50%)
+			&--new
+				+Roboto-Bold
+				font-size: 21px
+				color: $black
+		&__btn
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 100%
+			padding: 15px
+			word-wrap: break-word
+			background-image: url('../img/bg/buy-btn-bg.png')
+			background-position: 103% 10px
+			background-repeat: no-repeat
+			margin-bottom: 12px
+			border: 1px solid $orange
+			&:hover
+				background-color: $white
+				.same-slider__buy-icon, .same-slider__buy
+					color: $black
+		&__buy-icon
+			font-size: 27px
+			margin-right: 15px
+		&__buy
+			text-transform: uppercase
+		&__add-comparison
+			display: flex
+			justify-content: center
+			align-items: center
+			margin: 0 auto
+
+// Stock
+
+.stock
+	&-slider
+		&__wrap
+			margin-bottom: 45px
+
+// Newsletter-subscription
+
+.newsletter-subscription
+	margin-bottom: 13px
+	&__content
+		display: flex
+		justify-content: center
+		align-items: center
+		padding: 22px 25px
+		background-color: $green
+		background-image: url('../img/bg/message-bg.png')
+		background-repeat: no-repeat
+		background-position: 0 0
+		background-size: contain
+	&__title
+		+Roboto-Medium
+		font-size: 16px
+		color: $white
+		text-transform: uppercase
+		margin-right: 64px
+	&__form
+		position: relative
+		max-width: 458px
+		max-height: 38px
+	&__input
+		width: 458px
+		height: 38px
+		max-height: 38px
+		padding: 12px 14px
+		background-color: $green
+		border: 1px solid #66d3cd
+		color: $white
+		transition: .3s
+		&::placeholder
+			color: $white
+		&:focus
+			background-color: #66d3cd
+			border: 1px solid $white
+			& + .newsletter-subscription__icon
+				color: $white
+	&__icon
+		position: absolute
+		top: 50%
+		right: 14px
+		transform: translateY(-50%)
+		font-size: 26px
+		color: #66d3cd
+		transition: .3s
+
+// Warranty
+
+.warranty
+	&__items
+		display: flex
+		justify-content: space-between
+	&__item
+		display: flex
+		justify-content: space-between
+		align-items: center
+		flex-direction: column
+		text-align: center
+		width: 263px
+		height: 145px
+		padding: 25px
+		box-shadow: 0 0 59px rgba(0, 0, 0, .1)
+	&__icon
+		font-size: 32px
+		color: $orange
+		margin-bottom: 10px	
+	&__subtitle
+		font-size: 18px
+
+
+
+
+@import "media.sass"
